@@ -1,0 +1,236 @@
+[1/19] Processing file /home/s-p-j/lms/src/data/SqliteRepositories.cpp.
+13992 warnings generated.
+[2/19] Processing file /home/s-p-j/lms/src/data/Database.cpp.
+24269 warnings generated.
+[3/19] Processing file /home/s-p-j/lms/src/main.cpp.
+40704 warnings generated.
+[4/19] Processing file /home/s-p-j/lms/src/ui/Console.cpp.
+54517 warnings generated.
+[5/19] Processing file /home/s-p-j/lms/src/ui/InputValidator.cpp.
+68546 warnings generated.
+[6/19] Processing file /home/s-p-j/lms/src/ui/Menu.cpp.
+85012 warnings generated.
+[7/19] Processing file /home/s-p-j/lms/src/service/ModerationService.cpp.
+98975 warnings generated.
+[8/19] Processing file /home/s-p-j/lms/src/service/AuditService.cpp.
+112927 warnings generated.
+[9/19] Processing file /home/s-p-j/lms/src/service/SubmissionService.cpp.
+129632 warnings generated.
+[10/19] Processing file /home/s-p-j/lms/src/service/PasswordHasher.cpp.
+141063 warnings generated.
+[11/19] Processing file /home/s-p-j/lms/src/service/AuthService.cpp.
+155019 warnings generated.
+[12/19] Processing file /home/s-p-j/lms/src/service/CourseService.cpp.
+168992 warnings generated.
+[13/19] Processing file /home/s-p-j/lms/src/service/AssignmentService.cpp.
+182954 warnings generated.
+[14/19] Processing file /home/s-p-j/lms/src/domain/User.cpp.
+193214 warnings generated.
+[15/19] Processing file /home/s-p-j/lms/src/domain/Types.cpp.
+202960 warnings generated.
+[16/19] Processing file /home/s-p-j/lms/src/domain/Submission.cpp.
+213257 warnings generated.
+[17/19] Processing file /home/s-p-j/lms/src/domain/IClock.cpp.
+222863 warnings generated.
+[18/19] Processing file /home/s-p-j/lms/src/domain/UserFactory.cpp.
+235952 warnings generated.
+[19/19] Processing file /home/s-p-j/lms/src/domain/LatePenaltyPolicy.cpp.
+252443 warnings generated.
+/home/s-p-j/lms/src/domain/LatePenaltyPolicy.cpp:8:42: warning: 2 adjacent parameters of 'applyPenalty' of similar type ('int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+    8 | int TenPercentPerDayPolicy::applyPenalty(int rawMark, int maxMark, int daysLate) const {
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/domain/LatePenaltyPolicy.cpp:8:46: note: the first parameter in the range is 'rawMark'
+    8 | int TenPercentPerDayPolicy::applyPenalty(int rawMark, int maxMark, int daysLate) const {
+      |                                              ^~~~~~~
+/home/s-p-j/lms/src/domain/LatePenaltyPolicy.cpp:8:59: note: the last parameter in the range is 'maxMark'
+    8 | int TenPercentPerDayPolicy::applyPenalty(int rawMark, int maxMark, int daysLate) const {
+      |                                                           ^~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:9:24: warning: 3 adjacent parameters of 'Submission' of similar type ('int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+    9 | Submission::Submission(int id, int assignmentId, int studentId, std::string content, DateTime submittedAt,
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:9:28: note: the first parameter in the range is 'id'
+    9 | Submission::Submission(int id, int assignmentId, int studentId, std::string content, DateTime submittedAt,
+      |                            ^~
+/home/s-p-j/lms/src/domain/Submission.cpp:9:54: note: the last parameter in the range is 'studentId'
+    9 | Submission::Submission(int id, int assignmentId, int studentId, std::string content, DateTime submittedAt,
+      |                                                      ^~~~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:9:86: warning: 2 adjacent parameters of 'Submission' of convertible types are easily swapped by mistake [bugprone-easily-swappable-parameters]
+    9 | Submission::Submission(int id, int assignmentId, int studentId, std::string content, DateTime submittedAt,
+      |                                                                                      ^~~~~~~~~~~~~~~~~~~~~
+   10 |                        int resubmitCount, SubmissionStatus status, std::optional<int> rawMark,
+      |                        ~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:9:95: note: the first parameter in the range is 'submittedAt'
+    9 | Submission::Submission(int id, int assignmentId, int studentId, std::string content, DateTime submittedAt,
+      |                                                                                               ^~~~~~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:10:28: note: the last parameter in the range is 'resubmitCount'
+   10 |                        int resubmitCount, SubmissionStatus status, std::optional<int> rawMark,
+      |                            ^~~~~~~~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:9:86: note: 
+    9 | Submission::Submission(int id, int assignmentId, int studentId, std::string content, DateTime submittedAt,
+      |                                                                                      ^
+/home/s-p-j/lms/src/domain/Submission.cpp:10:24: note: 'DateTime' and 'int' may be implicitly converted: 'DateTime' (as 'long') -> 'int', 'int' -> 'DateTime' (as 'long')
+   10 |                        int resubmitCount, SubmissionStatus status, std::optional<int> rawMark,
+      |                        ^
+/home/s-p-j/lms/src/domain/Submission.cpp:10:68: warning: 2 adjacent parameters of 'Submission' of similar type ('std::optional<int>') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   10 |                        int resubmitCount, SubmissionStatus status, std::optional<int> rawMark,
+      |                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   11 |                        std::optional<int> finalMark, std::string feedback)
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:10:87: note: the first parameter in the range is 'rawMark'
+   10 |                        int resubmitCount, SubmissionStatus status, std::optional<int> rawMark,
+      |                                                                                       ^~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:11:43: note: the last parameter in the range is 'finalMark'
+   11 |                        std::optional<int> finalMark, std::string feedback)
+      |                                           ^~~~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:38:28: warning: 2 adjacent parameters of 'applyMark' of similar type ('int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   38 | void Submission::applyMark(int rawMark, int finalMark, const std::string& feedback) {
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:38:32: note: the first parameter in the range is 'rawMark'
+   38 | void Submission::applyMark(int rawMark, int finalMark, const std::string& feedback) {
+      |                                ^~~~~~~
+/home/s-p-j/lms/src/domain/Submission.cpp:38:45: note: the last parameter in the range is 'finalMark'
+   38 | void Submission::applyMark(int rawMark, int finalMark, const std::string& feedback) {
+      |                                             ^~~~~~~~~
+/home/s-p-j/lms/src/domain/Types.cpp:15:47: warning: operand of ? changes signedness: 'int' to 'unsigned int' [clang-diagnostic-sign-conversion]
+   15 |     const unsigned doy = (153 * (m + (m > 2 ? -3 : 9)) + 2) / 5 + d - 1;
+      |                                    ~          ^~
+/home/s-p-j/lms/src/domain/Types.cpp:20:44: warning: 2 adjacent parameters of 'civilFromDays' of similar type ('unsigned int &') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   20 | void civilFromDays(std::int64_t z, int& y, unsigned& m, unsigned& d) {
+      |                                            ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/domain/Types.cpp:20:54: note: the first parameter in the range is 'm'
+   20 | void civilFromDays(std::int64_t z, int& y, unsigned& m, unsigned& d) {
+      |                                                      ^
+/home/s-p-j/lms/src/domain/Types.cpp:20:67: note: the last parameter in the range is 'd'
+   20 | void civilFromDays(std::int64_t z, int& y, unsigned& m, unsigned& d) {
+      |                                                                   ^
+/home/s-p-j/lms/src/domain/Types.cpp:29:29: warning: operand of ? changes signedness: 'int' to 'unsigned int' [clang-diagnostic-sign-conversion]
+   29 |     m = mp + (mp < 10 ? 3 : -9);
+      |            ~                ^~
+/home/s-p-j/lms/src/domain/Types.cpp:98:24: warning: performing an implicit widening conversion to type 'std::int64_t' (aka 'long') of a multiplication performed in type 'int' [bugprone-implicit-widening-of-multiplication-result]
+   98 |                        h * 3600 + mi * 60 + s;
+      |                        ^
+/home/s-p-j/lms/src/domain/Types.cpp:98:24: note: make conversion explicit to silence this warning
+   98 |                        h * 3600 + mi * 60 + s;
+      |                        ^~~~~~~~
+      |                        static_cast<std::int64_t>( )
+/home/s-p-j/lms/src/domain/Types.cpp:98:24: note: perform multiplication in a wider type
+   98 |                        h * 3600 + mi * 60 + s;
+      |                        ^
+      |                        static_cast<std::int64_t>( )
+/home/s-p-j/lms/src/domain/Types.cpp:98:35: warning: performing an implicit widening conversion to type 'std::int64_t' (aka 'long') of a multiplication performed in type 'int' [bugprone-implicit-widening-of-multiplication-result]
+   98 |                        h * 3600 + mi * 60 + s;
+      |                                   ^
+/home/s-p-j/lms/src/domain/Types.cpp:98:35: note: make conversion explicit to silence this warning
+    3 |                        h * 3600 + mi * 60 + s;
+      |                                   ^~~~~~~
+      |                                   static_cast<std::int64_t>( )
+/home/s-p-j/lms/src/domain/Types.cpp:98:35: note: perform multiplication in a wider type
+   98 |                        h * 3600 + mi * 60 + s;
+      |                                   ^~
+      |                                   static_cast<std::int64_t>( )
+/home/s-p-j/lms/src/domain/UserFactory.cpp:18:67: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+   18 |                                               d.referenceNumber, *d.departmentId);
+      |                                                                   ^~~~~~~~~~~~~~
+/home/s-p-j/lms/src/domain/UserFactory.cpp:21:75: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+   21 |                                                       d.referenceNumber, *d.departmentId);
+      |                                                                           ^~~~~~~~~~~~~~
+/home/s-p-j/lms/src/service/AuthService.cpp:14:32: warning: 2 adjacent parameters of 'login' of similar type ('const std::string &') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   14 | const User* AuthService::login(const std::string& username, const std::string& password) {
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/service/AuthService.cpp:14:51: note: the first parameter in the range is 'username'
+   14 | const User* AuthService::login(const std::string& username, const std::string& password) {
+      |                                                   ^~~~~~~~
+/home/s-p-j/lms/src/service/AuthService.cpp:14:80: note: the last parameter in the range is 'password'
+   14 | const User* AuthService::login(const std::string& username, const std::string& password) {
+      |                                                                                ^~~~~~~~
+/home/s-p-j/lms/src/service/AuthService.cpp:35:26: warning: implicit conversion changes signedness: 'const char' to 'unsigned char' [clang-diagnostic-sign-conversion]
+   35 |     for (unsigned char c : username)
+      |                        ~ ^
+/home/s-p-j/lms/src/service/AuthService.cpp:40:74: warning: 2 adjacent parameters of 'createInitialAdministrator' of similar type ('const std::string &') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   40 | int AuthService::createInitialAdministrator(const std::string& username, const std::string& fullName,
+      |                                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   41 |                                             const std::string& password) {
+      |                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/service/AuthService.cpp:40:93: note: the first parameter in the range is 'fullName'
+   40 | int AuthService::createInitialAdministrator(const std::string& username, const std::string& fullName,
+      |                                                                                             ^~~~~~~~
+/home/s-p-j/lms/src/service/AuthService.cpp:41:64: note: the last parameter in the range is 'password'
+   41 |                                             const std::string& password) {
+      |                                                                ^~~~~~~~
+/home/s-p-j/lms/src/service/CourseService.cpp:27:55: warning: 2 adjacent parameters of 'assignLecturer' of similar type ('int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   27 | void CourseService::assignLecturer(const User& actor, int courseId, int lecturerId) {
+      |                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/service/CourseService.cpp:27:59: note: the first parameter in the range is 'courseId'
+   27 | void CourseService::assignLecturer(const User& actor, int courseId, int lecturerId) {
+      |                                                           ^~~~~~~~
+/home/s-p-j/lms/src/service/CourseService.cpp:27:73: note: the last parameter in the range is 'lecturerId'
+   27 | void CourseService::assignLecturer(const User& actor, int courseId, int lecturerId) {
+      |                                                                         ^~~~~~~~~~
+/home/s-p-j/lms/src/service/CourseService.cpp:53:72: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+   53 |         case Role::HeadOfDepartment: return courses_.findByDepartment(*user.getDepartmentId());
+      |                                                                        ^~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/service/CourseService.cpp:56:63: warning: unchecked access to optional value [bugprone-unchecked-optional-access]
+   56 |             for (const Course& c : courses_.findByDepartment(*user.getDepartmentId()))
+      |                                                               ^~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/service/PasswordHasher.cpp:40:34: warning: 2 adjacent parameters of 'hash' of similar type ('const std::string &') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   40 | std::string PasswordHasher::hash(const std::string& password, const std::string& salt) const {
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/service/PasswordHasher.cpp:40:53: note: the first parameter in the range is 'password'
+   40 | std::string PasswordHasher::hash(const std::string& password, const std::string& salt) const {
+      |                                                     ^~~~~~~~
+/home/s-p-j/lms/src/service/PasswordHasher.cpp:40:82: note: the last parameter in the range is 'salt'
+   40 | std::string PasswordHasher::hash(const std::string& password, const std::string& salt) const {
+      |                                                                                  ^~~~
+/home/s-p-j/lms/src/service/PasswordHasher.cpp:50:29: warning: 2 adjacent parameters of 'verify' of similar type ('const std::string &') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   50 | bool PasswordHasher::verify(const std::string& password, const std::string& salt, const std::string& expected) const {
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/service/PasswordHasher.cpp:50:48: note: the first parameter in the range is 'password'
+   50 | bool PasswordHasher::verify(const std::string& password, const std::string& salt, const std::string& expected) const {
+      |                                                ^~~~~~~~
+/home/s-p-j/lms/src/service/PasswordHasher.cpp:50:77: note: the last parameter in the range is 'salt'
+   50 | bool PasswordHasher::verify(const std::string& password, const std::string& salt, const std::string& expected) const {
+      |                                                                             ^~~~
+/home/s-p-j/lms/src/service/SubmissionService.cpp:49:62: warning: 2 adjacent parameters of 'markSubmission' of similar type ('int') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   49 | void SubmissionService::markSubmission(const User& lecturer, int submissionId, int rawMark,
+      |                                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/service/SubmissionService.cpp:49:66: note: the first parameter in the range is 'submissionId'
+   49 | void SubmissionService::markSubmission(const User& lecturer, int submissionId, int rawMark,
+      |                                                                  ^~~~~~~~~~~~
+/home/s-p-j/lms/src/service/SubmissionService.cpp:49:84: note: the last parameter in the range is 'rawMark'
+   49 | void SubmissionService::markSubmission(const User& lecturer, int submissionId, int rawMark,
+      |                                                                                    ^~~~~~~
+/home/s-p-j/lms/src/ui/InputValidator.cpp:22:34: warning: 2 adjacent parameters of 'text' of similar type ('const std::string &') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   22 | std::string InputValidator::text(const std::string& raw, const std::string& field, std::size_t minLen, std::size_t maxLen) {
+      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/ui/InputValidator.cpp:22:53: note: the first parameter in the range is 'raw'
+   22 | std::string InputValidator::text(const std::string& raw, const std::string& field, std::size_t minLen, std::size_t maxLen) {
+      |                                                     ^~~
+/home/s-p-j/lms/src/ui/InputValidator.cpp:22:77: note: the last parameter in the range is 'field'
+   22 | std::string InputValidator::text(const std::string& raw, const std::string& field, std::size_t minLen, std::size_t maxLen) {
+      |                                                                             ^~~~~
+/home/s-p-j/lms/src/ui/InputValidator.cpp:24:26: warning: implicit conversion changes signedness: 'char' to 'unsigned char' [clang-diagnostic-sign-conversion]
+   24 |     for (unsigned char c : trim(raw))
+      |                        ~ ^
+/home/s-p-j/lms/src/ui/InputValidator.cpp:31:29: warning: 2 adjacent parameters of 'integer' of similar type ('const std::string &') are easily swapped by mistake [bugprone-easily-swappable-parameters]
+   31 | int InputValidator::integer(const std::string& raw, const std::string& field, int min, int max) {
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/s-p-j/lms/src/ui/InputValidator.cpp:31:48: note: the first parameter in the range is 'raw'
+   31 | int InputValidator::integer(const std::string& raw, const std::string& field, int min, int max) {
+      |                                                ^~~
+/home/s-p-j/lms/src/ui/InputValidator.cpp:31:72: note: the last parameter in the range is 'field'
+   31 | int InputValidator::integer(const std::string& raw, const std::string& field, int min, int max) {
+      |                                                                        ^~~~~
+/home/s-p-j/lms/src/ui/Menu.cpp:69:5: warning: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+   69 |     switch (choice) {
+      |     ^
+/home/s-p-j/lms/src/ui/Menu.cpp:105:5: warning: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  105 |     switch (choice) {
+      |     ^
+/home/s-p-j/lms/src/ui/Menu.cpp:154:5: warning: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  154 |     switch (choice) {
+      |     ^
+/home/s-p-j/lms/src/ui/Menu.cpp:200:5: warning: switching on non-enum value without default case may not cover all cases [bugprone-switch-missing-default-case]
+  200 |     switch (choice) {
+      |     ^
+Suppressed 252415 warnings (252415 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
