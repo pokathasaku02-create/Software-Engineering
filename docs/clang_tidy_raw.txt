@@ -1,0 +1,24 @@
+Error while trying to load a compilation database:
+Could not auto-detect compilation database from directory "build"
+No compilation database found in /home/s-p-j/lms/build or any parent directory
+fixed-compilation-database: Error while opening fixed database: No such file or directory
+json-compilation-database: Error while opening JSON database: No such file or directory
+Running without flags.
+[1/18] Processing file /home/s-p-j/lms/src/data/Database.cpp.
+[2/18] Processing file /home/s-p-j/lms/src/data/SqliteRepositories.cpp.
+[3/18] Processing file /home/s-p-j/lms/src/domain/IClock.cpp.
+[4/18] Processing file /home/s-p-j/lms/src/domain/LatePenaltyPolicy.cpp.
+[5/18] Processing file /home/s-p-j/lms/src/domain/Submission.cpp.
+[6/18] Processing file /home/s-p-j/lms/src/domain/Types.cpp.
+[7/18] Processing file /home/s-p-j/lms/src/domain/User.cpp.
+[8/18] Processing file /home/s-p-j/lms/src/domain/UserFactory.cpp.
+[9/18] Processing file /home/s-p-j/lms/src/service/AssignmentService.cpp.
+[10/18] Processing file /home/s-p-j/lms/src/service/AuditService.cpp.
+[11/18] Processing file /home/s-p-j/lms/src/service/AuthService.cpp.
+[12/18] Processing file /home/s-p-j/lms/src/service/CourseService.cpp.
+[13/18] Processing file /home/s-p-j/lms/src/service/ModerationService.cpp.
+[14/18] Processing file /home/s-p-j/lms/src/service/PasswordHasher.cpp.
+[15/18] Processing file /home/s-p-j/lms/src/service/SubmissionService.cpp.
+[16/18] Processing file /home/s-p-j/lms/src/ui/Console.cpp.
+[17/18] Processing file /home/s-p-j/lms/src/ui/InputValidator.cpp.
+[18/18] Processing file /home/s-p-j/lms/src/ui/Menu.cpp.
