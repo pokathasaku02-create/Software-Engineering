@@ -44,13 +44,14 @@ ctest --test-dir build --output-on-failure
 gcovr -r . --filter 'src/domain/' --filter 'src/service/' --txt --print-summary
 ```
 
-## 6. Your own run (fill in before submission)
+## 6. Results of my own run (GitHub Actions)
+
 | Item | Value |
 |---|---|
-| Date and machine 01/10/2026 ||
-| `ctest` result (164 passed out of 164) | |
-| Business-logic coverage reported by gcovr 96.8% | |
-| Link:https://github.com/pokathasaku02-create/Software-Engineering/actions/runs/41310941981/job/124860977396 | |
+| Date and machine | 2026-11-01, GitHub Actions (Ubuntu); local build on HP ProBook 450 G7 |
+| `ctest` result (passed / total) | 164 / 164 |
+| Business-logic coverage reported by gcovr | PUT-THE-PERCENTAGE-FROM-THE-CI-LOG-HERE |
+| Link to the successful CI run on GitHub | https://github.com/pokathasaku02-create/Software-Engineering/actions/runs/41310941981/job/124860977396 |
 
 ## 7. Do the tests actually catch bugs? (mutation check)
 A test suite that never fails proves little, so I deliberately broke the code in ten ways and ran the suite each time.
@@ -69,3 +70,12 @@ A test suite that never fails proves little, so I deliberately broke the code in
 | 10 | "Reason required" check removed when re-marking | 0, equivalent in behaviour: `AuditService` independently refuses an empty reason, so the same error still occurs (defence in depth) |
 
 (A further experiment that damaged the SQL schema made every test fail and is not counted.) Seven of the seven non-equivalent mutants were caught.
+
+## 8. Manual test results
+
+| ID | Test | Date | Result |
+|---|---|---|---|
+| MT-01 | Password is hidden when typed | 2026-11-01 | Pass |
+| MT-02 | Works with the network disconnected | 2026-11-01 | Pass |
+| MT-03 | Data persists between runs | 2026-11-01 | Pass |
+| MT-04 | Ctrl+D ends the program cleanly | 2026-11-01 | Pass |
