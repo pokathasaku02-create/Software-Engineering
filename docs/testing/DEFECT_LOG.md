@@ -13,3 +13,11 @@ Fill in the real dates from your Git history (commit and pull-request dates) in 
 1. **An extension granted after a late submission also removes the late penalty.** The penalty is always measured from the effective deadline, so the lecturer's extension applies retroactively. Test: `SubmissionTest.ExtensionGrantedAfterALateSubmissionRemovesThePenalty`. Mention this rule in the SRS.
 2. **Two defensive checks overlap** (re-mark reason is checked in `SubmissionService` and again in `AuditService`). Kept deliberately as defence in depth; found by the mutation check.
 3. **Known limitations** (listed in README): no account lock-out after repeated failed logins and no password-change screen.
+
+## Dates (from the Git history)
+
+| Defect | Fixed in commit | Date |
+|---|---|---|
+| DEF-001 | 1731470 (initial commit, fix included) | 2026-10-25 |
+| DEF-002 | 5bdc0c4 | 2026-11-01 |
+| DEF-003 | 66fc44f | 2026-11-01 |
