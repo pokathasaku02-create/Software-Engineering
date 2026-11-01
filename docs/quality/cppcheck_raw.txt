@@ -1,0 +1,42 @@
+src/domain/LatePenaltyPolicy.h:19:5: style: Class 'TenPercentPerDayPolicy' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    TenPercentPerDayPolicy(double ratePerDay = 0.10, int maxDaysLate = 3)
+    ^
+src/ui/Menu.h:99:42: performance: Function parameter 'services' should be passed by const reference. [passedByValue]
+    LoginMenu(Console& console, Services services) : io_(console), svc_(services) {}
+                                         ^
+src/service/AssignmentService.cpp:42:78: style: Consider using std::copy algorithm instead of a raw loop. [useStlAlgorithm]
+        for (const Assignment& a : assignments_.findByCourse(c.getId())) all.push_back(a);
+                                                                             ^
+src/service/AuthService.cpp:36:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (!std::isalnum(c) && c != '_' && c != '.' && c != '-')
+^
+src/service/AuthService.cpp:62:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+            if (u->getRole() == Role::HeadOfDepartment && u->getDepartmentId() == details.departmentId)
+^
+src/service/CourseService.cpp:11:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (d.getName() == name) throw ValidationException("That department already exists.");
+^
+src/service/CourseService.cpp:23:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (c.getCode() == data.code) throw ValidationException("That course code already exists.");
+^
+src/service/CourseService.cpp:46:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (c.getId() == courseId) throw ValidationException("The student is already enrolled in that course.");
+^
+src/service/CourseService.cpp:57:60: style: Consider using std::copy_if algorithm instead of a raw loop. [useStlAlgorithm]
+                if (c.getLecturerId() == user.getId()) mine.push_back(c);
+                                                           ^
+src/service/PasswordHasher.cpp:34:29: style: The member function 'lms::PasswordHasher::generateSalt' can be static. [functionStatic]
+std::string PasswordHasher::generateSalt() const {
+                            ^
+src/service/PasswordHasher.h:12:17: note: The member function 'lms::PasswordHasher::generateSalt' can be static.
+    std::string generateSalt() const;                                               // 16 random bytes, hex
+                ^
+src/service/PasswordHasher.cpp:34:29: note: The member function 'lms::PasswordHasher::generateSalt' can be static.
+std::string PasswordHasher::generateSalt() const {
+                            ^
+src/service/SubmissionService.cpp:45:90: style: Consider using std::copy algorithm instead of a raw loop. [useStlAlgorithm]
+        for (const Submission& s : submissions_.findByCourseAndStatus(courseId, st)) out.push_back(s);
+                                                                                         ^
+src/ui/InputValidator.cpp:37:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (!std::isdigit(static_cast<unsigned char>(s[k]))) throw ValidationException(field + " must be a whole number.");
+^
