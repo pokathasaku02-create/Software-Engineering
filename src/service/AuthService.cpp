@@ -57,6 +57,11 @@ int AuthService::createUser(const User& actor, Role role, UserDetails details, c
     validatePassword(password);
     if (details.fullName.empty()) throw ValidationException("The full name is required.");
     if (users_.findByUsername(details.username)) throw ValidationException("That username is already taken.");
+    if (role == Role::HeadOfDepartment) {
+        for (const std::unique_ptr<User>& u : users_.findAll())
+            if (u->getRole() == Role::HeadOfDepartment && u->getDepartmentId() == details.departmentId)
+                throw ValidationException("That department already has a head of department.");
+    }
     details.salt = hasher_.generateSalt();
     details.passwordHash = hasher_.hash(password, details.salt);
     return users_.save(*UserFactory::create(role, details));
