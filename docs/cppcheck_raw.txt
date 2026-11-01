@@ -1,0 +1,251 @@
+src/data/Database.h:4:2: information: Include file: <optional> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <optional>
+ ^
+src/data/Database.h:5:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/data/Database.cpp:3:2: information: Include file: <sqlite3.h> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <sqlite3.h>
+ ^
+src/data/Database.cpp:5:2: information: Include file: <utility> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <utility>
+ ^
+src/domain/Exceptions.h:4:2: information: Include file: <stdexcept> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <stdexcept>
+ ^
+src/domain/Exceptions.h:5:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/data/Repositories.h:3:2: information: Include file: <memory> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <memory>
+ ^
+src/data/Repositories.h:4:2: information: Include file: <optional> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <optional>
+ ^
+src/data/Repositories.h:5:2: information: Include file: <vector> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <vector>
+ ^
+src/domain/Entities.h:4:2: information: Include file: <optional> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <optional>
+ ^
+src/domain/Entities.h:5:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/domain/Entities.h:6:2: information: Include file: <utility> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <utility>
+ ^
+src/domain/Types.h:3:2: information: Include file: <cstdint> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <cstdint>
+ ^
+src/domain/Types.h:4:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/domain/Submission.h:4:2: information: Include file: <optional> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <optional>
+ ^
+src/domain/Submission.h:5:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/domain/User.h:3:2: information: Include file: <optional> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <optional>
+ ^
+src/domain/User.h:4:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/domain/User.h:5:2: information: Include file: <utility> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <utility>
+ ^
+src/domain/UserFactory.h:3:2: information: Include file: <memory> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <memory>
+ ^
+src/domain/UserFactory.h:4:2: information: Include file: <optional> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <optional>
+ ^
+src/domain/UserFactory.h:5:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/domain/IClock.cpp:3:2: information: Include file: <ctime> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <ctime>
+ ^
+src/domain/LatePenaltyPolicy.h:3:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/domain/LatePenaltyPolicy.cpp:3:2: information: Include file: <algorithm> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <algorithm>
+ ^
+src/domain/LatePenaltyPolicy.cpp:4:2: information: Include file: <cmath> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <cmath>
+ ^
+src/domain/LatePenaltyPolicy.h:19:5: style: Class 'TenPercentPerDayPolicy' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    TenPercentPerDayPolicy(double ratePerDay = 0.10, int maxDaysLate = 3)
+    ^
+src/domain/Submission.cpp:3:2: information: Include file: <utility> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <utility>
+ ^
+src/domain/Types.cpp:3:2: information: Include file: <cstdio> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <cstdio>
+ ^
+src/main.cpp:3:2: information: Include file: <iostream> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <iostream>
+ ^
+src/main.cpp:4:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/service/AssignmentService.h:2:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/service/AssignmentService.h:3:2: information: Include file: <vector> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <vector>
+ ^
+src/service/AuditService.h:2:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/service/AuditService.h:3:2: information: Include file: <vector> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <vector>
+ ^
+src/service/AuthService.h:2:2: information: Include file: <memory> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <memory>
+ ^
+src/service/AuthService.h:3:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/service/AuthService.h:4:2: information: Include file: <vector> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <vector>
+ ^
+src/service/PasswordHasher.h:4:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/service/CourseService.h:2:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/service/CourseService.h:3:2: information: Include file: <vector> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <vector>
+ ^
+src/service/ModerationService.h:2:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/service/ModerationService.h:3:2: information: Include file: <vector> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <vector>
+ ^
+src/service/SubmissionService.h:2:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/service/SubmissionService.h:3:2: information: Include file: <vector> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <vector>
+ ^
+src/ui/Console.h:3:2: information: Include file: <iostream> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <iostream>
+ ^
+src/ui/Console.h:4:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/ui/Menu.h:3:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/ui/Menu.h:4:2: information: Include file: <vector> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <vector>
+ ^
+src/ui/InputValidator.h:3:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/ui/Menu.h:99:42: performance: Function parameter 'services' should be passed by const reference. [passedByValue]
+    LoginMenu(Console& console, Services services) : io_(console), svc_(services) {}
+                                         ^
+src/service/Authorization.h:4:2: information: Include file: <string> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <string>
+ ^
+src/service/AssignmentService.cpp:42:78: style: Consider using std::copy algorithm instead of a raw loop. [useStlAlgorithm]
+        for (const Assignment& a : assignments_.findByCourse(c.getId())) all.push_back(a);
+                                                                             ^
+src/service/AuthService.cpp:3:2: information: Include file: <cctype> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <cctype>
+ ^
+src/service/AuthService.cpp:36:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (!std::isalnum(c) && c != '_' && c != '.' && c != '-')
+^
+src/service/AuthService.cpp:62:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+            if (u->getRole() == Role::HeadOfDepartment && u->getDepartmentId() == details.departmentId)
+^
+src/service/CourseService.cpp:11:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (d.getName() == name) throw ValidationException("That department already exists.");
+^
+src/service/CourseService.cpp:23:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (c.getCode() == data.code) throw ValidationException("That course code already exists.");
+^
+src/service/CourseService.cpp:46:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (c.getId() == courseId) throw ValidationException("The student is already enrolled in that course.");
+^
+src/service/CourseService.cpp:57:60: style: Consider using std::copy_if algorithm instead of a raw loop. [useStlAlgorithm]
+                if (c.getLecturerId() == user.getId()) mine.push_back(c);
+                                                           ^
+src/service/PasswordHasher.cpp:3:2: information: Include file: <sodium.h> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <sodium.h>
+ ^
+src/service/PasswordHasher.cpp:5:2: information: Include file: <vector> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <vector>
+ ^
+src/service/PasswordHasher.cpp:34:29: style: The member function 'lms::PasswordHasher::generateSalt' can be static. [functionStatic]
+std::string PasswordHasher::generateSalt() const {
+                            ^
+src/service/PasswordHasher.h:12:17: note: The member function 'lms::PasswordHasher::generateSalt' can be static.
+    std::string generateSalt() const;                                               // 16 random bytes, hex
+                ^
+src/service/PasswordHasher.cpp:34:29: note: The member function 'lms::PasswordHasher::generateSalt' can be static.
+std::string PasswordHasher::generateSalt() const {
+                            ^
+src/service/Deadlines.h:3:2: information: Include file: <algorithm> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <algorithm>
+ ^
+src/service/Deadlines.h:4:2: information: Include file: <optional> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <optional>
+ ^
+src/service/SubmissionService.cpp:45:90: style: Consider using std::copy algorithm instead of a raw loop. [useStlAlgorithm]
+        for (const Submission& s : submissions_.findByCourseAndStatus(courseId, st)) out.push_back(s);
+                                                                                         ^
+src/ui/Console.cpp:6:2: information: Include file: <termios.h> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <termios.h>
+ ^
+src/ui/Console.cpp:7:2: information: Include file: <unistd.h> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <unistd.h>
+ ^
+src/ui/InputValidator.cpp:3:2: information: Include file: <cctype> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <cctype>
+ ^
+src/ui/InputValidator.cpp:4:2: information: Include file: <climits> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <climits>
+ ^
+src/ui/InputValidator.cpp:5:2: information: Include file: <cstdlib> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <cstdlib>
+ ^
+src/ui/InputValidator.cpp:37:0: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (!std::isdigit(static_cast<unsigned char>(s[k]))) throw ValidationException(field + " must be a whole number.");
+^
+src/ui/Menu.cpp:3:2: information: Include file: <climits> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <climits>
+ ^
+src/ui/Menu.cpp:4:2: information: Include file: <memory> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <memory>
+ ^
+src/ui/Menu.cpp:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+src/domain/Entities.h:65:10: style: The function 'isOpenAt' is never used. [unusedFunction]
+    bool isOpenAt(DateTime t) const { return t <= deadline_; }
+         ^
+src/domain/Entities.h:17:10: style: The function 'setId' is never used. [unusedFunction]
+    void setId(int id) { id_ = id; }
+         ^
+src/domain/IClock.h:24:10: style: The function 'set' is never used. [unusedFunction]
+    void set(DateTime t) { t_ = t; }
+         ^
+src/domain/IClock.h:25:10: style: The function 'advanceDays' is never used. [unusedFunction]
+    void advanceDays(int days) { t_ += days * kSecondsPerDay; }
+         ^
+src/domain/User.h:25:10: style: The function 'setActive' is never used. [unusedFunction]
+    void setActive(bool active) { active_ = active; }
+         ^
+src/service/AuthService.h:19:17: style: The function 'currentUser' is never used. [unusedFunction]
+    const User* currentUser() const { return current_.get(); }
+                ^
+nofile:0:0: information: Active checkers: 173/975 (use --checkers-report=<filename> to see details) [checkersReport]
+
