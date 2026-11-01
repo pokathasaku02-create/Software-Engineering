@@ -47,10 +47,10 @@ gcovr -r . --filter 'src/domain/' --filter 'src/service/' --txt --print-summary
 ## 6. Your own run (fill in before submission)
 | Item | Value |
 |---|---|
-| Date and machine | |
-| `ctest` result (passed / total) | |
-| Business-logic coverage reported by gcovr | |
-| Link to the successful CI run on GitHub | |
+| Date and machine 01/10/2026 ||
+| `ctest` result (164 passed out of 164) | |
+| Business-logic coverage reported by gcovr 96.8% | |
+| Link:https://github.com/pokathasaku02-create/Software-Engineering/actions/runs/41310941981/job/124860977396 | |
 
 ## 7. Do the tests actually catch bugs? (mutation check)
 A test suite that never fails proves little, so I deliberately broke the code in ten ways and ran the suite each time.
