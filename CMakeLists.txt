@@ -43,3 +43,17 @@ target_link_libraries(lms_core PUBLIC SQLite::SQLite3 PkgConfig::SODIUM)
 
 add_executable(lms src/main.cpp)
 target_link_libraries(lms PRIVATE lms_core)
+
+# ---- Tests and coverage (Phase 5) -------------------------------------------------------------
+option(LMS_BUILD_TESTS "Build the unit, integration, system and acceptance tests" OFF)
+option(LMS_COVERAGE "Instrument the code for gcov/gcovr line coverage (GCC or Clang)" OFF)
+
+if(LMS_COVERAGE)
+  target_compile_options(lms_core PUBLIC --coverage -O0 -g)
+  target_link_options(lms_core PUBLIC --coverage)
+endif()
+
+if(LMS_BUILD_TESTS)
+  enable_testing()
+  add_subdirectory(tests)
+endif()

@@ -70,6 +70,7 @@ Dependencies point downward only. Services use repository **interfaces**, never 
 - `IClock` (injectable time) and `ITransactionManager` (implemented by `Database`) are infrastructure interfaces.
 - `Submission::adjustFinalMark` supports the Head of Department's moderation change.
 - Extensions are **not** shown on the student's assignment list in v1.0 (that is change request CR1).
+- A student who submitted late and is then granted an extension may resubmit (state Late to Submitted); found by testing, see DEF-002.
 
 ## 3. Security
 - **Passwords**: only a salted Argon2id hash is stored (`libsodium`, `crypto_pwhash`, 16-byte random salt per user, hex encoded). Comparison is constant-time (`sodium_memcmp`).
@@ -85,7 +86,18 @@ Dates are entered and shown as `YYYY-MM-DD HH:MM` in the school computer's local
 stored as text `YYYY-MM-DD HH:MM:SS` with no time zone or daylight-saving conversion (one school, one clock).
 "Days late" are whole days rounded up: 1 second late counts as 1 day late.
 
-## 5. Known limitations
+## 5. Testing
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DLMS_BUILD_TESTS=ON -DLMS_COVERAGE=ON
+cmake --build build -j
+ctest --test-dir build --output-on-failure
+gcovr -r . --filter 'src/domain/' --filter 'src/service/' --txt --print-summary
+```
+164 automated tests (GoogleTest) cover unit, integration, system and acceptance levels; each test builds a private in-memory
+database, so `lms.db` is never touched. The test plan, results, coverage report and defect log are in `docs/testing/`.
+GitHub Actions (`.github/workflows/ci.yml`) builds, runs the tests and fails if business-logic coverage falls below 70%.
+
+## 6. Known limitations
 - No account lock-out after repeated failed logins, and no password-change screen (both are sensible future changes).
 - Console only; the Windows console echoes passwords.
 - The marks are whole numbers.
