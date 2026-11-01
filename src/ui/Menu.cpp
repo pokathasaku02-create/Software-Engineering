@@ -212,8 +212,12 @@ void AdminMenu::handle(int choice) {
             if (role != Role::Administrator)
                 d.referenceNumber = InputValidator::text(ask(role == Role::Student ? "Student number: " : "Staff number: "), "The number", 1, 30);
             if (role == Role::Lecturer || role == Role::HeadOfDepartment) {
-                for (const Department& dep : svc_.courses.departments()) say("  department #" + std::to_string(dep.getId()) + "  " + dep.getName());
+                const std::vector<Department> deps = svc_.courses.departments();
+                for (const Department& dep : deps) say("  department #" + std::to_string(dep.getId()) + "  " + dep.getName());
                 d.departmentId = InputValidator::integer(ask("Department number: "), "The department number", 1, INT_MAX);
+                bool exists = false;
+                for (const Department& dep : deps) exists = exists || dep.getId() == *d.departmentId;
+                if (!exists) throw ValidationException("No such department.");
             }
             const std::string pw = InputValidator::password(io_.readSecret("Initial password (min 8 characters): "));
             say("User #" + std::to_string(svc_.auth.createUser(user_, role, d, pw)) + " created.");

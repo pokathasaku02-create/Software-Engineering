@@ -25,10 +25,14 @@ void Submission::requireStatus(SubmissionStatus expected, const char* action) co
 }
 
 void Submission::resubmit(const std::string& content, DateTime at) {
-    requireStatus(SubmissionStatus::Submitted, "resubmit");
+    // Late is allowed here only because SubmissionService calls resubmit() solely when the work
+    // is on time against the effective deadline (possible after an extension). See DEF-002.
+    if (status_ != SubmissionStatus::Submitted && status_ != SubmissionStatus::Late)
+        throw IllegalStateException("Cannot resubmit a submission that is " + toString(status_) + ".");
     content_ = content;
     submittedAt_ = at;
     ++resubmitCount_;
+    status_ = SubmissionStatus::Submitted;
 }
 
 void Submission::applyMark(int rawMark, int finalMark, const std::string& feedback) {

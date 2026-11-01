@@ -30,6 +30,7 @@ public:
     void setId(int id) { submissionId_ = id; }
 
     // Submitted -> Submitted: the student replaces the work before the deadline.
+    // Late -> Submitted: same, when an extension made the work on time after all.
     void resubmit(const std::string& content, DateTime at);
     // Submitted/Late -> Marked, or Marked -> Marked (lecturer re-marks before moderation).
     void applyMark(int rawMark, int finalMark, const std::string& feedback);

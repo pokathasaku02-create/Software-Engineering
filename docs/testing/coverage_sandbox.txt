@@ -1,0 +1,44 @@
+data/Database.cpp                         59     61   96.7
+data/Database.h                            1      1  100.0
+data/ITransactionManager.h                 7      7  100.0
+data/Repositories.h                        5      5  100.0
+data/SqliteRepositories.cpp              228    228  100.0
+data/SqliteRepositories.h                  5      5  100.0
+domain/Entities.h                         45     45  100.0
+domain/IClock.cpp                          6      6  100.0
+domain/IClock.h                            5      5  100.0
+domain/LatePenaltyPolicy.cpp               8      8  100.0
+domain/LatePenaltyPolicy.h                 5      5  100.0
+domain/Submission.cpp                     42     42  100.0
+domain/Submission.h                       10     10  100.0
+domain/Types.cpp                          71     73   97.3
+domain/User.cpp                            8      8  100.0
+domain/User.h                             32     32  100.0
+domain/UserFactory.cpp                    17     18   94.4
+service/AssignmentService.cpp             46     47   97.9
+service/AssignmentService.h                2      2  100.0
+service/AuditService.cpp                   9      9  100.0
+service/AuditService.h                     1      1  100.0
+service/AuthService.cpp                   53     53  100.0
+service/AuthService.h                      1      1  100.0
+service/Authorization.h                    4      4  100.0
+service/CourseService.cpp                 47     48   97.9
+service/CourseService.h                    2      2  100.0
+service/Deadlines.h                        5      5  100.0
+service/ModerationService.cpp             53     53  100.0
+service/ModerationService.h                2      2  100.0
+service/PasswordHasher.cpp                28     30   93.3
+service/SubmissionService.cpp             61     61  100.0
+service/SubmissionService.h                3      3  100.0
+ui/Console.cpp                             0     25    0.0
+ui/Console.h                               1      1  100.0
+ui/InputValidator.cpp                     34     34  100.0
+ui/Menu.cpp                              260    265   98.1
+ui/Menu.h                                 17     17  100.0
+
+layer domain  : 249/252 = 98.8%
+layer service : 317/321 = 98.8%
+layer data    : 305/307 = 99.3%
+layer ui      : 312/342 = 91.2%
+BUSINESS LOGIC (domain+service): 566/573 = 98.8%
+ALL (excluding main.cpp): 1183/1222 = 96.8%

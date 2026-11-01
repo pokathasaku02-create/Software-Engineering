@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake pkg-config libsqlite3-dev libsodium-dev gcovr
+
+      - name: Configure (tests and coverage on)
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DLMS_BUILD_TESTS=ON -DLMS_COVERAGE=ON
+
+      - name: Build
+        run: cmake --build build -j 2
+
+      - name: Run all tests
+        run: ctest --test-dir build --output-on-failure
+
+      - name: Coverage of the business-logic layer (fails below 70 percent)
+        run: |
+          gcovr -r . --filter 'src/domain/' --filter 'src/service/' --txt --print-summary --fail-under-line 70 | tee coverage-business-logic.txt
+          gcovr -r . --filter 'src/' --exclude 'src/main.cpp' --txt --print-summary | tee coverage-all.txt
+          gcovr -r . --filter 'src/' --exclude 'src/main.cpp' --html-details coverage.html
+
+      - name: Keep the evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-and-coverage-evidence
+          path: |
+            coverage-business-logic.txt
+            coverage-all.txt
+            coverage*.html
