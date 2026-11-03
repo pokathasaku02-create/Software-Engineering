@@ -2,6 +2,8 @@
 
 #include "Authorization.h"
 
+#include "../data/ITransactionManager.h"
+
 namespace lms {
 
 Course AssignmentService::requireTaughtBy(const User& lecturer, int courseId) {
@@ -56,6 +58,36 @@ Assignment AssignmentService::getAssignment(int assignmentId) {
     std::optional<Assignment> a = assignments_.findById(assignmentId);
     if (!a) throw NotFoundException("No such assignment.");
     return *a;
+}
+
+int AssignmentService::grantClassExtension(const User& lecturer, const ClassExtensionData& data) {
+    requirePermission(lecturer, Permission::GrantExtension, "grant extensions");
+    std::optional<Assignment> a = assignments_.findById(data.assignmentId);
+    if (!a) throw NotFoundException("No such assignment.");
+    requireTaughtBy(lecturer, a->getCourseId());
+    if (data.newDeadline <= a->getDeadline())
+        throw ValidationException("The extended deadline must be later than the assignment deadline.");
+    if (data.reason.empty() || data.reason.size() > 500)
+        throw ValidationException("Give a reason of 1 to 500 characters.");
+
+    const std::vector<int> students = courses_.findStudentIdsByCourse(a->getCourseId());
+    if (students.empty()) throw ValidationException("No students are enrolled on that course.");
+
+    const DateTime now = clock_.now();
+    ScopedTransaction tx(tx_);
+    int count = 0;
+    for (int studentId : students) {
+        assignments_.saveExtension(
+            Extension(0, data.assignmentId, studentId, data.newDeadline, data.reason, lecturer.getId(), now));
+        ++count;
+    }
+    tx.commit();
+    return count;
+}
+
+std::optional<Extension> AssignmentService::extensionFor(const User& student, int assignmentId) {
+    requirePermission(student, Permission::SubmitWork, "view your assignments");
+    return assignments_.findExtension(student.getId(), assignmentId);
 }
 
 }  // namespace lms

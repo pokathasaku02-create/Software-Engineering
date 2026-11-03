@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
         AuthService auth(users, hasher);
         AuditService audit(audits, clock);
         CourseService courseSvc(courses, users, clock);
-        AssignmentService assignmentSvc(assignments, courses, clock);
+        AssignmentService assignmentSvc(assignments, courses, clock, db);
         SubmissionService submissionSvc(assignments, submissions, courses, audit, policy, db, clock);
         ModerationService moderationSvc(courses, submissions, assignments, audit, db);
 

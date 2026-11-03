@@ -426,3 +426,73 @@ TEST_F(ModerationTest, AuditNeedsAReason) {
     EXPECT_THROW(w.audit.logMarkChange(w.hod->getId(), id, 60, 61, ""), ValidationException);
     EXPECT_NO_THROW(w.audit.logMarkChange(w.hod->getId(), id, 60, 61, "x"));
 }
+
+// ------------------------------------------------------------------ CR1: class-wide extensions
+
+TEST_F(SubmissionTest, ClassExtensionCoversEveryEnrolledStudent) {
+    ClassExtensionData d;
+    d.assignmentId = w.assignmentId;
+    d.newDeadline = T("2026-10-20 12:00");
+    d.reason = "Class illness";
+    const int n = w.assignmentSvc.grantClassExtension(*w.lecturer, d);
+    EXPECT_EQ(n, 2);                                     // setUpStandard enrols student1 and student2
+    EXPECT_EQ(submitAt("2026-10-18 10:00", *w.student1).status, SubmissionStatus::Submitted);
+    EXPECT_EQ(submitAt("2026-10-18 10:00", *w.student2).status, SubmissionStatus::Submitted);
+}
+
+TEST_F(SubmissionTest, ClassExtensionRejectsDeadlineNotLaterThanAssignment) {
+    ClassExtensionData d;
+    d.assignmentId = w.assignmentId;
+    d.newDeadline = T("2026-10-10 12:00");               // exactly the deadline: not later
+    d.reason = "r";
+    EXPECT_THROW(w.assignmentSvc.grantClassExtension(*w.lecturer, d), ValidationException);
+    d.newDeadline = T("2026-10-09 12:00");               // before
+    EXPECT_THROW(w.assignmentSvc.grantClassExtension(*w.lecturer, d), ValidationException);
+}
+
+TEST_F(SubmissionTest, ClassExtensionRequiresReason) {
+    ClassExtensionData d;
+    d.assignmentId = w.assignmentId;
+    d.newDeadline = T("2026-10-20 12:00");
+    d.reason = "";
+    EXPECT_THROW(w.assignmentSvc.grantClassExtension(*w.lecturer, d), ValidationException);
+    d.reason = std::string(501, 'r');
+    EXPECT_THROW(w.assignmentSvc.grantClassExtension(*w.lecturer, d), ValidationException);
+}
+
+TEST_F(SubmissionTest, OnlyTheLecturerOfTheCourseMayGrantAClassExtension) {
+    ClassExtensionData d;
+    d.assignmentId = w.assignmentId;
+    d.newDeadline = T("2026-10-20 12:00");
+    d.reason = "r";
+    std::unique_ptr<User> other = w.addUser(Role::Lecturer, "other_lec", w.dept);
+    EXPECT_THROW(w.assignmentSvc.grantClassExtension(*other, d), AccessDeniedException);
+    EXPECT_THROW(w.assignmentSvc.grantClassExtension(*w.student1, d), AccessDeniedException);
+    EXPECT_THROW(w.assignmentSvc.grantClassExtension(*w.hod, d), AccessDeniedException);
+    EXPECT_THROW(w.assignmentSvc.grantClassExtension(*w.admin, d), AccessDeniedException);
+}
+
+TEST_F(SubmissionTest, ClassExtensionIsReplacedByASubsequentClassExtension) {
+    ClassExtensionData d;
+    d.assignmentId = w.assignmentId;
+    d.newDeadline = T("2026-10-20 12:00");
+    d.reason = "first";
+    w.assignmentSvc.grantClassExtension(*w.lecturer, d);
+    d.newDeadline = T("2026-10-25 12:00");
+    d.reason = "second";
+    EXPECT_EQ(w.assignmentSvc.grantClassExtension(*w.lecturer, d), 2);
+    EXPECT_EQ(w.assignmentSvc.extensionFor(*w.student1, w.assignmentId)->getNewDeadline(), T("2026-10-25 12:00"));
+    EXPECT_EQ(w.assignmentSvc.extensionFor(*w.student2, w.assignmentId)->getNewDeadline(), T("2026-10-25 12:00"));
+}
+
+TEST_F(SubmissionTest, ExtensionForIsOnlyVisibleToTheStudentItBelongsTo) {
+    ClassExtensionData d;
+    d.assignmentId = w.assignmentId;
+    d.newDeadline = T("2026-10-20 12:00");
+    d.reason = "r";
+    w.assignmentSvc.grantClassExtension(*w.lecturer, d);
+    EXPECT_TRUE(w.assignmentSvc.extensionFor(*w.student1, w.assignmentId).has_value());
+    EXPECT_TRUE(w.assignmentSvc.extensionFor(*w.student2, w.assignmentId).has_value());
+    EXPECT_THROW(w.assignmentSvc.extensionFor(*w.lecturer, w.assignmentId), AccessDeniedException);
+    EXPECT_THROW(w.assignmentSvc.extensionFor(*w.hod, w.assignmentId), AccessDeniedException);
+}

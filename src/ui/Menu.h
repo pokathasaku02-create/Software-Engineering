@@ -62,9 +62,9 @@ public:
 protected:
     std::string title() const override { return "Lecturer menu"; }
     std::vector<std::string> options() const override {
-        return {"View my courses", "Create an assignment", "List assignments of a course",
-                "Grant an extension to a student", "List submissions to mark", "Mark or re-mark a submission"};
-    }
+               return {"View my courses", "Create an assignment", "List assignments of a course",
+                "Grant an extension to a student", "List submissions to mark", "Mark or re-mark a submission",
+                "Grant an extension to the whole class"};
     void handle(int choice) override;
 };
 

@@ -30,6 +30,7 @@ public:
     std::vector<Department> findDepartments() override;
     int saveDepartment(const Department& department) override;
     void enrol(const Enrolment& enrolment) override;
+        std::vector<int> findStudentIdsByCourse(int courseId) override;
 private:
     Database& db_;
 };
