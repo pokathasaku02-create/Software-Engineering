@@ -162,6 +162,14 @@ void SqliteCourseRepository::enrol(const Enrolment& e) {
     s.run();
 }
 
+std::vector<int> SqliteCourseRepository::findStudentIdsByCourse(int courseId) {
+    Statement s = db_.prepare("SELECT student_id FROM enrolment WHERE course_id = ? ORDER BY student_id");
+    s.bind(1, courseId);
+    std::vector<int> out;
+    while (s.step()) out.push_back(static_cast<int>(s.columnInt(0)));
+    return out;
+}
+
 // ===================== assignments & extensions =====================
 
 std::optional<Assignment> SqliteAssignmentRepository::findById(int id) {

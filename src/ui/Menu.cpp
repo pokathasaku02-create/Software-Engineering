@@ -75,6 +75,8 @@ void StudentMenu::handle(int choice) {
                 printAssignment(io_, a);
                 if (std::optional<Submission> s = svc_.submissions.statusFor(user_, a.getId()))
                     say("      your submission: " + toString(s->getStatus()) + " (submitted " + formatDateTime(s->getSubmittedAt()) + ")");
+                if (std::optional<Extension> e = svc_.assignments.extensionFor(user_, a.getId()))
+                    say("      extension until " + formatDateTime(e->getNewDeadline()) + " (reason: " + e->getReason() + ")");
             }
             break;
         }
@@ -143,6 +145,16 @@ void LecturerMenu::handle(int choice) {
             const std::string reason = InputValidator::text(ask("Reason (required only when changing an existing mark): "), "The reason", 0, 500);
             svc_.submissions.markSubmission(user_, id, raw, fb, reason);
             say("Mark saved and recorded in the audit log. The student cannot see it until it is moderated and released.");
+            break;
+        }
+        
+                case 7: {
+            ClassExtensionData e;
+            e.assignmentId = InputValidator::integer(ask("Assignment number: "), "The assignment number", 1, INT_MAX);
+            e.newDeadline = InputValidator::dateTime(ask("New deadline for the whole class (YYYY-MM-DD HH:MM): "));
+            e.reason = InputValidator::text(ask("Reason: "), "The reason", 1, 500);
+            const int n = svc_.assignments.grantClassExtension(user_, e);
+            say("Extension granted to " + std::to_string(n) + " student(s).");
             break;
         }
     }

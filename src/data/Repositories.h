@@ -33,7 +33,9 @@ public:
     virtual std::vector<Department> findDepartments() = 0;
     virtual int saveDepartment(const Department& department) = 0;
     virtual void enrol(const Enrolment& enrolment) = 0;
-};
+    virtual std::vector<int> findStudentIdsByCourse(int courseId) = 0;
+}
+    
 
 class IAssignmentRepository {
 public:
